@@ -1,4 +1,5 @@
 import 'package:affection/components/login_component.dart';
+import 'package:affection/resources/auth_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:affection/utils/color.dart';
 import 'package:affection/widgets/text_field_input.dart';
@@ -86,6 +87,10 @@ class _SignUpState extends State<SignUp> {
               const SizedBox(height: 14),
 
               InkWell(
+                onTap: () => AuthMethods().signUpUser(
+                    email: _emailController.text,
+                    password: _passwordController.text,
+                    username: _usernameController.text),
                 child: Container(
                   child: const Text("Sign up"),
                   // child: !_isLoading
@@ -105,7 +110,6 @@ class _SignUpState extends State<SignUp> {
                     color: blueColor,
                   ),
                 ),
-                onTap: () {},
               ),
               const SizedBox(
                 height: 12,
