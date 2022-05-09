@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "440510448701",
+    "project_id": "affection-a0a2f",
+    "storage_bucket": "affection-a0a2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440510448701:android:2a7dfa2f8adca177fb9654",
+        "android_client_info": {
+          "package_name": "com.example.affection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440510448701-k4neslud8l7nl8785cqa02a2cq10nb3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV42vyNADc63RWLHSXbZbIObfRkfPP9XE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440510448701-k4neslud8l7nl8785cqa02a2cq10nb3a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
