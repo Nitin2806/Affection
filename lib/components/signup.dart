@@ -40,7 +40,7 @@ class _SignUpState extends State<SignUp> {
               //logo
 
               SvgPicture.asset(
-                'assets/images/ic_affection.svg',
+                'assets/images/ic_instagram.svg',
                 color: primaryColor,
                 height: 84,
               ),
