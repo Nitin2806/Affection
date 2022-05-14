@@ -7,8 +7,8 @@ import 'package:flutter/services.dart';
 
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.orangeAccent,
-      systemNavigationBarColor: Colors.orangeAccent));
+      statusBarColor: Color.fromARGB(255, 49, 49, 49),
+      systemNavigationBarColor: Color.fromARGB(255, 67, 67, 67)));
 
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
