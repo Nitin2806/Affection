@@ -1,4 +1,9 @@
-import 'package:affection/components/signup.dart';
+import 'package:affection/resources/auth_methods.dart';
+import 'package:affection/responsive/mobile_screen_layout.dart';
+import 'package:affection/responsive/responsive_layout.dart';
+import 'package:affection/responsive/web_screen_layout.dart';
+import 'package:affection/screens/signup.dart';
+import 'package:affection/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:affection/utils/color.dart';
 import 'package:affection/widgets/text_field_input.dart';
@@ -14,12 +19,40 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool _isLoading = false;
 
   @override
   void dispose() {
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+  }
+
+  void loginUser() async {
+    setState(() {
+      _isLoading = true;
+    });
+    String res = await AuthMethods().loginUser(
+        email: _emailController.text, password: _passwordController.text);
+    if (res == 'success') {
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(
+            builder: (context) => const ResponsiveLayout(
+              mobileScreenLayout: MobileScreenLayout(),
+              webScreenLayout: WebScreenLayout(),
+            ),
+          ),
+          (route) => false);
+
+      setState(() {
+        _isLoading = false;
+      });
+    } else {
+      setState(() {
+        _isLoading = false;
+      });
+      showSnackBar(context, res);
+    }
   }
 
   @override
@@ -34,9 +67,8 @@ class _LoginState extends State<Login> {
             children: [
               Flexible(child: Container(), flex: 2),
               //logo
-
               SvgPicture.asset(
-                'assets/images/ic_instagram.svg',
+                'assets/images/ic_affection.svg',
                 color: primaryColor,
                 height: 154,
               ),
@@ -57,26 +89,15 @@ class _LoginState extends State<Login> {
                 isPass: true,
               ),
               const SizedBox(height: 14),
-
-              //login button
-              // ElevatedButton(
-              //   onPressed: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(builder: (context) => const ()),
-              //     );
-              //   },
-              //   child: const Text('Go back!'),
-              // ),
               InkWell(
                 child: Container(
-                  // child: !_isLoading
-                  //     ? const Text(
-                  //         'Log in',
-                  //       )
-                  //     : const CircularProgressIndicator(
-                  //         color: primaryColor,
-                  //       ),
+                  child: !_isLoading
+                      ? const Text(
+                          'Log in',
+                        )
+                      : const CircularProgressIndicator(
+                          color: primaryColor,
+                        ),
                   width: double.infinity,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(vertical: 12),
@@ -87,7 +108,7 @@ class _LoginState extends State<Login> {
                     color: blueColor,
                   ),
                 ),
-                onTap: () {},
+                onTap: loginUser,
               ),
               const SizedBox(
                 height: 12,

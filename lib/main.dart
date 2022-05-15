@@ -1,4 +1,4 @@
-import 'package:affection/components/signup.dart';
+import 'package:affection/screens/login.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:affection/utils/color.dart';
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         //   mobileScreenLayout: MobileScreenLayout(),
         //   webScreenLayout: WebScreenLayout(),
         // )
-        home: const SignUp());
+        home: const Login());
   }
 }
 // _8s_w_eet_sparkles_

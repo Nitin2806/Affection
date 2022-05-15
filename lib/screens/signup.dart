@@ -1,6 +1,6 @@
 import 'dart:typed_data';
-import 'package:affection/components/login_component.dart';
 import 'package:affection/resources/auth_methods.dart';
+import 'package:affection/screens/login.dart';
 import 'package:affection/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:affection/utils/color.dart';
@@ -21,6 +21,7 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   Uint8List? _image;
+  bool _isLoading = false;
 
   @override
   void dispose() {
@@ -39,6 +40,40 @@ class _SignUpState extends State<SignUp> {
     });
   }
 
+  void signUpuser() async {
+    setState(() {
+      _isLoading = true;
+    });
+    String res = await AuthMethods().signUpUser(
+      name: _nameController.text,
+      email: _emailController.text,
+      password: _passwordController.text,
+      username: _usernameController.text,
+      file: _image!,
+    );
+
+    if (res == "success") {
+      setState(() {
+        _isLoading = false;
+      });
+      // navigate to the home screen
+      // Navigator.of(context).pushReplacement(
+      //   MaterialPageRoute(
+      //     builder: (context) => const ResponsiveLayout(
+      //       mobileScreenLayout: MobileScreenLayout(),
+      //       webScreenLayout: WebScreenLayout(),
+      //     ),
+      //   ),
+      // )
+    } else {
+      setState(() {
+        _isLoading = false;
+      });
+      // show the error
+      showSnackBar(context, res);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,11 +89,11 @@ class _SignUpState extends State<SignUp> {
               //logo
 
               SvgPicture.asset(
-                'assets/images/ic_instagram.svg',
+                'assets/images/ic_affection.svg',
+                height: 105,
                 color: primaryColor,
-                height: 84,
               ),
-              const SizedBox(height: 64),
+              const SizedBox(height: 14),
 
               Stack(children: [
                 _image != null
@@ -112,22 +147,15 @@ class _SignUpState extends State<SignUp> {
               const SizedBox(height: 14),
 
               InkWell(
-                onTap: () => AuthMethods().signUpUser(
-                  name: _nameController.text,
-                  email: _emailController.text,
-                  password: _passwordController.text,
-                  username: _usernameController.text,
-                  file: _image!,
-                ),
+                onTap: signUpuser,
                 child: Container(
-                  child: const Text("Sign up"),
-                  // child: !_isLoading
-                  //     ? const Text(
-                  //         'Log in',
-                  //       )
-                  //     : const CircularProgressIndicator(
-                  //         color: primaryColor,
-                  //       ),
+                  child: !_isLoading
+                      ? const Text(
+                          'Sign Up',
+                        )
+                      : const CircularProgressIndicator(
+                          color: primaryColor,
+                        ),
                   width: double.infinity,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(vertical: 12),
@@ -151,7 +179,7 @@ class _SignUpState extends State<SignUp> {
                 children: [
                   Container(
                     child: const Text(
-                      "Don't have an account? ",
+                      "Already have an account? ",
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 8),
                   ),
@@ -163,7 +191,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     child: Container(
                       child: const Text(
-                        ' Signup',
+                        'Login',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
