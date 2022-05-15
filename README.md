@@ -13,20 +13,20 @@ A Flutter project for Building Friendly Social Application to connect with Peopl
 
 ## How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com) , [Flutter](https://docs.flutter.dev/get-started/install)and [Dart](https://dart.dev/) installed on your computer. From your command line:
 
 ```bash
 # Clone this repository
 $ git clone https://github.com/Nitin2806/affection
 
 # Go into the repository
-$ cd electron-markdownify
+$ cd affection
 
 # Install dependencies
-$ npm install
+$ flutter pub get
 
 # Run the app
-$ npm start
+$ flutter run (Choose your device)
 ```
 
 Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
@@ -35,11 +35,6 @@ Note: If you're using Linux Bash for Windows, [see this guide](https://www.howto
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
+For help getting started with Flutter, view the
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
