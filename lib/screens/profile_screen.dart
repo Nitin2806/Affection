@@ -67,6 +67,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print(userData);
     return isLoading
         ? const Center(
             child: CircularProgressIndicator(),
@@ -75,7 +76,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             appBar: AppBar(
               backgroundColor: mobileBackgroundColor,
               title: Text(
-                userData['username'],
+                userData['name'],
               ),
               centerTitle: false,
             ),
@@ -90,7 +91,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           CircleAvatar(
                             backgroundColor: Colors.grey,
                             backgroundImage: NetworkImage(
-                              userData['photoUrl'],
+                              userData['photoURL'],
                             ),
                             radius: 40,
                           ),
@@ -195,7 +196,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           top: 1,
                         ),
                         child: Text(
-                          userData['bio'],
+                          userData['name'],
                         ),
                       ),
                     ],
