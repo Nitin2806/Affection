@@ -58,14 +58,14 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 32),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Flexible(child: Container(), flex: 2),
+              // Flexible(child: Container(), flex: 2),
               //logo
               SvgPicture.asset(
                 'assets/images/ic_affection.svg',
@@ -80,6 +80,7 @@ class _LoginState extends State<Login> {
                   hintText: "Phone number, username or email",
                   textInputType: TextInputType.emailAddress),
               const SizedBox(height: 14),
+
               //password
 
               TextFieldInput(
@@ -113,10 +114,7 @@ class _LoginState extends State<Login> {
               const SizedBox(
                 height: 12,
               ),
-              Flexible(
-                child: Container(),
-                flex: 2,
-              ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -142,6 +140,7 @@ class _LoginState extends State<Login> {
                       padding: const EdgeInsets.symmetric(vertical: 8),
                     ),
                   ),
+                  const Padding(padding: EdgeInsets.all(10))
                 ],
               ),
             ],
