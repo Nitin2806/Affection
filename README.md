@@ -110,10 +110,11 @@ service cloud.firestore {
 <!-- CONTACT -->
 ## Contact
 
-Nitin Mishra  
+### **Nitin Mishra**
+
 [Twitter](https://twitter.com/Nitin_mishra_) 
 
-[Gmail](mnitin2311@gmail.com)
+Gmail - (mnitin2311@gmail.com)
 
 
 Project Link : [Affection](https://github.com/Nitin2806/affection)
