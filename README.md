@@ -51,6 +51,10 @@ This section should list any major frameworks/libraries used to bootstrap your p
 ## Getting Started
 
 ### Prerequisites
+
+
+### Installation and Setup Guide
+
 To clone and run this application, you'll need [Git](https://git-scm.com) , [Flutter](https://docs.flutter.dev/get-started/install)and [Dart](https://dart.dev/) installed on your computer. From your command line:
 
 ```bash
@@ -69,12 +73,50 @@ $ flutter run (Choose your device)
 
 Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/)
 
+### Firebase 
+
+- Create a new Project
+
+![Sign In](/assets/firebase/overview.jpg) 
+
+- Set Firestore Database Rules
+
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write
+    }
+  }
+}
+
+```
+- Enable Sign-in  methods to Email/Password
+
+![Sign In](/assets/firebase/signinmethods.jpg) 
+- Create a new android project
+
+- Add `google-services.json` file to android root directory of project `/android/app/`
+
+- Create a web project
+- Add Configuration to project ` main.dart ` file
+
+
+
+
+
+
 <!-- CONTACT -->
 ## Contact
 
-Nitin Mishra - [@Twitter](https://twitter.com/Nitin_mishra_) - mnitin2311@gmail.com
+Nitin Mishra  
+[Twitter](https://twitter.com/Nitin_mishra_) 
 
-Project Link: [Affection](https://github.com/Nitin2806/affection)
+[Gmail](mnitin2311@gmail.com)
+
+
+Project Link : [Affection](https://github.com/Nitin2806/affection)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
